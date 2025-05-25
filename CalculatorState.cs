@@ -7,7 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Terraria.ModLoader;
 using Terraria.UI;
-using TutorialMod.UI;
 using rail;
 using Terraria.GameContent.UI.Elements;
 

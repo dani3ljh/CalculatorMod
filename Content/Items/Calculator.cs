@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using TutorialMod.UI;
+using CalculatorMod.UI;
 
 namespace CalculatorMod.Content.Items
 {
