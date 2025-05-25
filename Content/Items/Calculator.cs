@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using TutorialMod.UI;
 
-namespace TutorialMod.Content.Items
+namespace CalculatorMod.Content.Items
 {
 	public class Calculator : ModItem
 	{
@@ -35,6 +35,6 @@ namespace TutorialMod.Content.Items
 			}
 
 			return true;
-        }
+		}
 	}
 }

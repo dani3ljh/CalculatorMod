@@ -1,3 +1,3 @@
-displayName = Tutorial Mode
+displayName = Calculator Mod
 author = dani3ljh
 version = 0.1

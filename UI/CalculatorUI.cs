@@ -8,7 +8,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.UI;
 
-namespace TutorialMod.UI
+namespace CalculatorMod.UI
 {
     class CalculatorUI : UIState
     {

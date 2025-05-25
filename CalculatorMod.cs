@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 using Terraria.ModLoader;
 using Terraria.UI;
 
-namespace TutorialMod
+namespace CalculatorMod
 {
-	public class TutorialMod : Mod
+	public class CalculatorMod : Mod
 	{
 	}
 }

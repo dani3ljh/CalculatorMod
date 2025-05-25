@@ -11,7 +11,7 @@ using TutorialMod.UI;
 using rail;
 using Terraria.GameContent.UI.Elements;
 
-namespace TutorialMod
+namespace CalculatorMod
 {
     public enum Operator
     {
@@ -23,7 +23,8 @@ namespace TutorialMod
 
     public static class OperatorExtensions
     {
-        public static string ToSymbol(this Operator op) {
+        public static string ToSymbol(this Operator op)
+	{
             switch (op)
             {
                 case Operator.Addition:
@@ -50,24 +51,18 @@ namespace TutorialMod
 
         private void UpdateOutput()
         {
-            if (isNum1)
-            {
+            if (isNum1) {
                 outputText.SetText(num1);
-            }
-            else
-            {
+            } else {
                 outputText.SetText($"{num1} {operation.ToSymbol()} {num2}");
             }
         }
 
         internal void ZeroButton(UIMouseEvent evt, UIElement listeningElement)
         {
-            if (isNum1)
-            {
+            if (isNum1) {
                 num1 += "0";
-            }
-            else
-            {
+            } else {
                 num2 += "0";
             }
             UpdateOutput();
@@ -75,12 +70,9 @@ namespace TutorialMod
 
         internal void OneButton(UIMouseEvent evt, UIElement listeningElement)
         {
-            if (isNum1)
-            {
+            if (isNum1) {
                 num1 += "1";
-            }
-            else
-            {
+            } else {
                 num2 += "1";
             }
             UpdateOutput();
@@ -88,12 +80,9 @@ namespace TutorialMod
 
         internal void TwoButton(UIMouseEvent evt, UIElement listeningElement)
         {
-            if (isNum1)
-            {
+            if (isNum1) {
                 num1 += "2";
-            }
-            else
-            {
+            } else {
                 num2 += "2";
             }
             UpdateOutput();
@@ -101,12 +90,9 @@ namespace TutorialMod
 
         internal void ThreeButton(UIMouseEvent evt, UIElement listeningElement)
         {
-            if (isNum1)
-            {
+            if (isNum1) {
                 num1 += "3";
-            }
-            else
-            {
+            } else {
                 num2 += "3";
             }
             UpdateOutput();
@@ -114,12 +100,9 @@ namespace TutorialMod
 
         internal void FourButton(UIMouseEvent evt, UIElement listeningElement)
         {
-            if (isNum1)
-            {
+            if (isNum1) {
                 num1 += "4";
-            }
-            else
-            {
+            } else {
                 num2 += "4";
             }
             UpdateOutput();
@@ -127,12 +110,9 @@ namespace TutorialMod
 
         internal void FiveButton(UIMouseEvent evt, UIElement listeningElement)
         {
-            if (isNum1)
-            {
+            if (isNum1) {
                 num1 += "5";
-            }
-            else
-            {
+            } else {
                 num2 += "5";
             }
             UpdateOutput();
@@ -140,12 +120,9 @@ namespace TutorialMod
 
         internal void SixButton(UIMouseEvent evt, UIElement listeningElement)
         {
-            if (isNum1)
-            {
+            if (isNum1) {
                 num1 += "6";
-            }
-            else
-            {
+            } else {
                 num2 += "6";
             }
             UpdateOutput();
@@ -153,12 +130,9 @@ namespace TutorialMod
 
         internal void SevenButton(UIMouseEvent evt, UIElement listeningElement)
         {
-            if (isNum1)
-            {
+            if (isNum1) {
                 num1 += "7";
-            }
-            else
-            {
+            } else {
                 num2 += "7";
             }
             UpdateOutput();
@@ -166,12 +140,9 @@ namespace TutorialMod
 
         internal void EightButton(UIMouseEvent evt, UIElement listeningElement)
         {
-            if (isNum1)
-            {
+            if (isNum1) {
                 num1 += "8";
-            }
-            else
-            {
+            } else {
                 num2 += "8";
             }
             UpdateOutput();
@@ -179,12 +150,9 @@ namespace TutorialMod
 
         internal void NineButton(UIMouseEvent evt, UIElement listeningElement)
         {
-            if (isNum1)
-            {
+            if (isNum1) {
                 num1 += "9";
-            }
-            else
-            {
+            } else {
                 num2 += "9";
             }
             UpdateOutput();
