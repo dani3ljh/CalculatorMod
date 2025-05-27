@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent;
@@ -38,17 +39,17 @@ namespace CalculatorMod.UI
             state.outputText = outputText;
 
             MouseEvent[,] buttonActions = new MouseEvent[4, 5] {
-                {state.SevenButton, state.EightButton, state.NineButton, OnButtonClick, OnButtonClick},
-                {state.FourButton, state.FiveButton, state.SixButton, OnButtonClick, OnButtonClick},
-                {state.OneButton, state.TwoButton, state.ThreeButton, OnButtonClick, OnButtonClick},
-                {state.ZeroButton, OnButtonClick, OnButtonClick, OnButtonClick, OnButtonClick},
+                {(_, _) => state.SevenButton(), (_, _) => state.EightButton(), (_, _) => state.NineButton(), (_, _) => state.DivisionButton(), (_, _) => state.ClearEntry()},
+                {(_, _) => state.FourButton(), (_, _) => state.FiveButton(), (_, _) => state.SixButton(), (_, _) => state.MultiplicationButton(), (_, _) => state.BackspaceButton()},
+                {(_, _) => state.OneButton(), (_, _) => state.TwoButton(), (_, _) => state.ThreeButton(), (_, _) => state.SubtractionButton(), (_, _) => state.SqrtButton()},
+                {(_, _) => state.ZeroButton(), (_, _) => state.DecimalButton(), (_, _) => state.NegateButton(), (_, _) => state.AdditionButton(), (_, _) => state.EqualsButton()},
             };
 
             string[,] buttonLabels = new string[4, 5] {
-                {"7", "8", "9", "!", "!"},
-                {"4", "5", "6", "!", "!"},
-                {"1", "2", "3", "!", "!"},
-                {"0", "!", "!", "!", "!"},
+                {"7", "8", "9", "÷", "CE"},
+                {"4", "5", "6", "×", "<-"},
+                {"1", "2", "3", "-", "√"},
+                {"0", ".", "(-)", "+", "="},
             };
 
             // array of buttons

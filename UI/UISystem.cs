@@ -18,8 +18,7 @@ namespace CalculatorMod.UI
         
         public override void Load()
         {
-            if (!Main.dedServ)
-            {
+            if (!Main.dedServ) {
                 MyInterface = new();
                 
                 CalculatorUIState = new();
@@ -36,23 +35,19 @@ namespace CalculatorMod.UI
         public override void UpdateUI(GameTime gameTime)
         {
             _lastUpdateUIGameTime = gameTime;
-            if (MyInterface?.CurrentState != null)
-            {
+            if (MyInterface?.CurrentState != null) {
                 MyInterface.Update(gameTime);
             }
         }
         
-        public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
-        {
+        public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers) {
             int mouseTextIndex = layers.FindIndex(layer => layer.Name == "Vanilla: Mouse Text");
             if (mouseTextIndex == -1) return;
             
             layers.Insert(mouseTextIndex, new LegacyGameInterfaceLayer(
                 "TutorialMod: MyInterface",
-                delegate
-                {
-                    if (_lastUpdateUIGameTime != null && MyInterface?.CurrentState != null)
-                    {
+                delegate {
+                    if (_lastUpdateUIGameTime != null && MyInterface?.CurrentState != null) {
                         MyInterface.Draw(Main.spriteBatch, _lastUpdateUIGameTime);
                     }
                     return true;
@@ -89,8 +84,7 @@ namespace CalculatorMod.UI
         {
             OnLeftClick += onClick;
             
-            label = new(labelText)
-            {
+            label = new(labelText) {
                 HAlign = 0.5f,
                 VAlign = 0.5f
             };
