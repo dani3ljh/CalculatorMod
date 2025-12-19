@@ -36,6 +36,11 @@ namespace CalculatorMod.UI
         {
             _lastUpdateUIGameTime = gameTime;
             if (MyInterface?.CurrentState != null) {
+                // Turn Off UI if Escape is pressed
+                if (Main.keyState.IsKeyDown(Microsoft.Xna.Framework.Input.Keys.Escape) && !Main.oldKeyState.IsKeyDown(Microsoft.Xna.Framework.Input.Keys.Escape)) {
+                    HideCalculatorUI();
+                }
+
                 MyInterface.Update(gameTime);
             }
         }

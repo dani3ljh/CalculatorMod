@@ -21,16 +21,24 @@ namespace CalculatorMod.Content.Items
 
 		public override void AddRecipes()
 		{
+			// Copper Recipe
 			Recipe recipe = CreateRecipe();
 			recipe.AddRecipeGroup("IronBar", 10);
-			recipe.AddIngredient(ItemID.Wire, 5);
+			recipe.AddIngredient(ItemID.CopperBar, 5);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			// Tin Recipe
+			recipe = CreateRecipe();
+			recipe.AddRecipeGroup("IronBar", 10);
+			recipe.AddIngredient(ItemID.TinBar, 5);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 
 		public override bool? UseItem(Player player)
 		{
-			if (!Main.dedServ) {
+			if (!Main.dedServ && Main.myPlayer == player.whoAmI) {
 				ModContent.GetInstance<UISystem>().ToggleCalculatorUI();
 			}
 
