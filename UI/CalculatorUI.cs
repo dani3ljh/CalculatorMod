@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.UI.Elements;
@@ -13,21 +14,23 @@ namespace CalculatorMod.UI
 {
     class CalculatorUI : UIState
     {
+        UIPanel panel;
+
         public override void OnInitialize()
         {
-            UIPanel panel = new() {
+            panel = new() {
                 HAlign = 0.5f,
                 VAlign = 0.5f
             };
             panel.Width.Set(150, 0);
-            panel.Height.Set(200, 0);
+            panel.Height.Set(250, 0);
             Append(panel);
 
             UIPanel textBox = new() {
                 HAlign = 0.5f
             };
             textBox.Width.Set(0, 1f);
-            textBox.Height.Set(30, 0);
+            textBox.Height.Set(40, 0);
             panel.Append(textBox);
 
             UIText outputText = new("");
@@ -63,6 +66,15 @@ namespace CalculatorMod.UI
                     button.Height.Set(0, 0.2f);
                     panel.Append(button);
                 }
+            }
+        }
+
+        protected override void DrawSelf(SpriteBatch spriteBatch)
+        {
+            base.DrawSelf(spriteBatch);
+            
+            if (panel.ContainsPoint(Main.MouseScreen)) {
+                Main.LocalPlayer.mouseInterface = true;
             }
         }
     }

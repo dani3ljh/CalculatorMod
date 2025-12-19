@@ -115,6 +115,8 @@ namespace CalculatorMod
 
         internal void OperatorButton(Operator op)
         {
+            if (num1 == "") return;
+
             operation = op;
             isNum1 = false;
             UpdateOutput();
