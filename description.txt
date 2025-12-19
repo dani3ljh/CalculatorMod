@@ -1,2 +1,4 @@
 Adds a calculator item that opens a Calculator GUI.
 Crafted by 10 Iron/Lead Bars and 5 Wires.
+Made by Me, Daniel
+Icon art by TrySoft

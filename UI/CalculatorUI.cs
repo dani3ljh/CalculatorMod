@@ -39,10 +39,10 @@ namespace CalculatorMod.UI
             state.outputText = outputText;
 
             MouseEvent[,] buttonActions = new MouseEvent[4, 5] {
-                {(_, _) => state.NumberButton('7'), (_, _) => state.NumberButton('8'), (_, _) => state.NumberButton('9'), (_, _) => state.OperatorButton(Operator.Division), (_, _) => state.ClearEntry()},
-                {(_, _) => state.NumberButton('4'), (_, _) => state.NumberButton('5'), (_, _) => state.NumberButton('6'), (_, _) => state.OperatorButton(Operator.Multiplication), (_, _) => state.BackspaceButton()},
-                {(_, _) => state.NumberButton('1'), (_, _) => state.NumberButton('2'), (_, _) => state.NumberButton('3'), (_, _) => state.OperatorButton(Operator.Subtraction), (_, _) => state.SqrtButton()},
-                {(_, _) => state.NumberButton('0'), (_, _) => state.DecimalButton(), (_, _) => state.NegateButton(), (_, _) => state.OperatorButton(Operator.Addition), (_, _) => state.EqualsButton()},
+                {(_,_) => state.NumberButton('7'), (_,_) => state.NumberButton('8'), (_,_) => state.NumberButton('9'), (_,_) => state.OperatorButton(Operator.Division), (_,_) => state.ClearEntry()},
+                {(_,_) => state.NumberButton('4'), (_,_) => state.NumberButton('5'), (_,_) => state.NumberButton('6'), (_,_) => state.OperatorButton(Operator.Multiplication), (_,_) => state.BackspaceButton()},
+                {(_,_) => state.NumberButton('1'), (_,_) => state.NumberButton('2'), (_,_) => state.NumberButton('3'), (_,_) => state.OperatorButton(Operator.Subtraction), (_,_) => state.SqrtButton()},
+                {(_,_) => state.NumberButton('0'), (_,_) => state.DecimalButton(), (_,_) => state.NegateButton(), (_,_) => state.OperatorButton(Operator.Addition), (_,_) => state.EqualsButton()},
             };
 
             string[,] buttonLabels = new string[4, 5] {
