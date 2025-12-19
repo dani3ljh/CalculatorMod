@@ -1,3 +1,3 @@
 displayName = Calculator Mod
 author = dani3ljh
-version = 0.1
+version = 0.2
