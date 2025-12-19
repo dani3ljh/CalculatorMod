@@ -23,7 +23,7 @@ namespace CalculatorMod.Content.Items
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddRecipeGroup("IronBar", 10);
-			recipe.AddIngredient(ItemID.Wire, 20);
+			recipe.AddIngredient(ItemID.Wire, 5);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
