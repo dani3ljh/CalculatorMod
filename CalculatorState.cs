@@ -36,22 +36,29 @@ namespace CalculatorMod
 
     class CalculatorState : ModSystem
     {
+        internal UIText outputText;
+
         private string num1;
         private Operator operation;
         private string num2;
         private bool isNum1;
-        internal UIText outputText;
 
         public override void OnWorldLoad()
-        {
-            ClearEntry();
-        }
-
-        internal void ClearEntry()
         {
             num1 = "";
             num2 = "";
             isNum1 = true;
+        }
+
+        internal void ClearEntry()
+        {
+            if (isNum1) {
+                num1 = "";
+            } else if (num2 != "") {
+                num2 = "";
+            } else {
+                isNum1 = true;
+            }
             UpdateOutput();
         }
 
@@ -65,102 +72,12 @@ namespace CalculatorMod
             }
         }
 
-        internal void ZeroButton()
+        internal void NumberButton(char num)
         {
             if (isNum1) {
-                num1 += '0';
+                num1 += num;
             } else {
-                num2 += '0';
-            }
-            UpdateOutput();
-        }
-
-        internal void OneButton()
-        {
-            if (isNum1) {
-                num1 += '1';
-            } else {
-                num2 += '1';
-            }
-            UpdateOutput();
-        }
-
-        internal void TwoButton()
-        {
-            if (isNum1) {
-                num1 += '2';
-            } else {
-                num2 += '2';
-            }
-            UpdateOutput();
-        }
-
-        internal void ThreeButton()
-        {
-            if (isNum1) {
-                num1 += '3';
-            } else {
-                num2 += '3';
-            }
-            UpdateOutput();
-        }
-
-        internal void FourButton()
-        {
-            if (isNum1) {
-                num1 += '4';
-            } else {
-                num2 += '4';
-            }
-            UpdateOutput();
-        }
-
-        internal void FiveButton()
-        {
-            if (isNum1) {
-                num1 += '5';
-            } else {
-                num2 += '5';
-            }
-            UpdateOutput();
-        }
-
-        internal void SixButton()
-        {
-            if (isNum1) {
-                num1 += '6';
-            } else {
-                num2 += '6';
-            }
-            UpdateOutput();
-        }
-
-        internal void SevenButton()
-        {
-            if (isNum1) {
-                num1 += '7';
-            } else {
-                num2 += '7';
-            }
-            UpdateOutput();
-        }
-
-        internal void EightButton()
-        {
-            if (isNum1) {
-                num1 += '8';
-            } else {
-                num2 += '8';
-            }
-            UpdateOutput();
-        }
-
-        internal void NineButton()
-        {
-            if (isNum1) {
-                num1 += '9';
-            } else {
-                num2 += '9';
+                num2 += num;
             }
             UpdateOutput();
         }
@@ -196,30 +113,9 @@ namespace CalculatorMod
             UpdateOutput();
         }
 
-        internal void AdditionButton()
+        internal void OperatorButton(Operator op)
         {
-            operation = Operator.Addition;
-            isNum1 = false;
-            UpdateOutput();
-        }
-
-        internal void SubtractionButton()
-        {
-            operation = Operator.Subtraction;
-            isNum1 = false;
-            UpdateOutput();
-        }
-
-        internal void MultiplicationButton()
-        {
-            operation = Operator.Multiplication;
-            isNum1 = false;
-            UpdateOutput();
-        }
-
-        internal void DivisionButton()
-        {
-            operation = Operator.Division;
+            operation = op;
             isNum1 = false;
             UpdateOutput();
         }
@@ -248,8 +144,8 @@ namespace CalculatorMod
                 num2 = "";
                 isNum1 = true;
                 UpdateOutput();
-            } catch (Exception e) {
-                outputText.SetText(e.ToString());
+            } catch {
+                outputText.SetText("Error");
             }
         }
 
@@ -258,11 +154,10 @@ namespace CalculatorMod
             if (isNum1) {
                 if (num1 == "") return;
                 num1 = num1[..(num1.Length - 1)];
+            } else if (num2 == "") {
+                isNum1 = true;
             } else {
-                if (num2 == "")
-                    isNum1 = true;
-                else
-                    num2 = num2[..(num2.Length - 1)];
+                num2 = num2[..(num2.Length - 1)];
             }
             UpdateOutput();
         }
@@ -271,15 +166,17 @@ namespace CalculatorMod
         {
             try {
                 if (isNum1) {
+                    if (num1 == "") return;
                     double doubleNum1 = Convert.ToDouble(num1);
                     num1 = Math.Sqrt(doubleNum1).ToString();
                 } else {
+                    if (num2 == "") return;
                     double doubleNum2 = Convert.ToDouble(num2);
                     num2 = Math.Sqrt(doubleNum2).ToString();
                 }
                 UpdateOutput();
-            } catch (Exception e) {
-                outputText.SetText(e.ToString());
+            } catch {
+                outputText.SetText("Error");
             }
         }
     }

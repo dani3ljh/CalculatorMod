@@ -39,15 +39,15 @@ namespace CalculatorMod.UI
             state.outputText = outputText;
 
             MouseEvent[,] buttonActions = new MouseEvent[4, 5] {
-                {(_, _) => state.SevenButton(), (_, _) => state.EightButton(), (_, _) => state.NineButton(), (_, _) => state.DivisionButton(), (_, _) => state.ClearEntry()},
-                {(_, _) => state.FourButton(), (_, _) => state.FiveButton(), (_, _) => state.SixButton(), (_, _) => state.MultiplicationButton(), (_, _) => state.BackspaceButton()},
-                {(_, _) => state.OneButton(), (_, _) => state.TwoButton(), (_, _) => state.ThreeButton(), (_, _) => state.SubtractionButton(), (_, _) => state.SqrtButton()},
-                {(_, _) => state.ZeroButton(), (_, _) => state.DecimalButton(), (_, _) => state.NegateButton(), (_, _) => state.AdditionButton(), (_, _) => state.EqualsButton()},
+                {(_, _) => state.NumberButton('7'), (_, _) => state.NumberButton('8'), (_, _) => state.NumberButton('9'), (_, _) => state.OperatorButton(Operator.Division), (_, _) => state.ClearEntry()},
+                {(_, _) => state.NumberButton('4'), (_, _) => state.NumberButton('5'), (_, _) => state.NumberButton('6'), (_, _) => state.OperatorButton(Operator.Multiplication), (_, _) => state.BackspaceButton()},
+                {(_, _) => state.NumberButton('1'), (_, _) => state.NumberButton('2'), (_, _) => state.NumberButton('3'), (_, _) => state.OperatorButton(Operator.Subtraction), (_, _) => state.SqrtButton()},
+                {(_, _) => state.NumberButton('0'), (_, _) => state.DecimalButton(), (_, _) => state.NegateButton(), (_, _) => state.OperatorButton(Operator.Addition), (_, _) => state.EqualsButton()},
             };
 
             string[,] buttonLabels = new string[4, 5] {
                 {"7", "8", "9", "÷", "CE"},
-                {"4", "5", "6", "×", "<-"},
+                {"4", "5", "6", "×", "←"},
                 {"1", "2", "3", "-", "√"},
                 {"0", ".", "(-)", "+", "="},
             };
@@ -63,14 +63,6 @@ namespace CalculatorMod.UI
                     button.Height.Set(0, 0.2f);
                     panel.Append(button);
                 }
-            }
-        }
-
-        private void OnButtonClick(UIMouseEvent evt, UIElement listeningElement)
-        {
-            if (listeningElement is UIButton button) {
-                UIText label = button.GetLabel();
-                label.TextColor = label.TextColor == Color.White ? Color.Green : Color.White;
             }
         }
     }
